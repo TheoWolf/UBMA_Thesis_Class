@@ -10,6 +10,11 @@
 	\PassOptionsToPackage{\CurrentOption}{fontenc}
 }
 
+% Pass Option to the report class
+\DeclareOption*{
+	\PassOptionsToClass{\CurrentOption}{report}
+}
+
 %% Fallback
 \DeclareOption*{
 	\ClassWarning{ubmaphdthesis}{Unknown option '\CurrentOption'}
@@ -29,6 +34,8 @@
 \RequirePackage[T1]{fontenc}
 \RequirePackage{geometry}
 \geometry{
+% Uncomment the left and right geometry margin
+% if needed instead of width
 %	left={15mm},
 %	right={15mm},
 	width={150mm},
@@ -36,13 +43,15 @@
 	top={25mm},
 	bottom={25mm},
 }
-\usepackage{mathptmx}
 
+% For math equations
+\usepackage{mathptmx}
 \usepackage{amsmath}
 
 %for arabic not working yet
 %\usepackage{arabtex}
 
+% to draw graphs
 \usepackage{graphicx}
 
 %for the table
@@ -81,13 +90,12 @@
 
 %to align chapter on the left
 \usepackage{sectsty}
-\chapterfont{\thispagestyle{empty}}
 \chapterfont{\raggedleft}
 
 % for landscpae pages
 \usepackage{pdflscape}
 
-%Abbrevation 
+%Abbrevation
 \usepackage[acronym]{glossaries}
 %%Bibtex Style
 %\usepackage{biblatex}
@@ -117,5 +125,16 @@
 %To have Tableau instead of Table
 \addto\captionsfrench{\def\tablename{Tableau}}
 \addto\captionsfrench{\def\figurename{Figure}}
+
+\renewcommand{\maketitle}{
+	\thispagestyle{empty}
+	\pagestyle{empty}
+	\newgeometry{margin=2mm}
+	\begin{tikzpicture}	
+		\draw[black, line width = 3.6pt] (2mm,2mm) rectangle (195mm,\textheight);
+		\draw[black, thick] (3mm,3mm) rectangle (194mm,\textheight-1mm);
+	\end{tikzpicture}
+	\restoregeometry
+}
 
 \endinput

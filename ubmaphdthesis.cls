@@ -37,14 +37,18 @@
 	bottom={25mm},
 }
 \usepackage{mathptmx}
+
 \usepackage{amsmath}
-%for arabic
-\usepackage{arabtex}
+
+%for arabic not working yet
+%\usepackage{arabtex}
+
 \usepackage{graphicx}
+
 %for the table
 \usepackage{multirow}
 \usepackage{tabularx}
-%\graphicspath{Images/}
+
 %for subfigure
 \usepackage{subcaption}
 
@@ -61,6 +65,7 @@
 %\linespread{1.25}
 
 \usepackage{calc}
+
 %If you would like to use floating figure {H}
 \usepackage{float}
 
@@ -70,10 +75,13 @@
 
 \usepackage{tikz,pgfplots}
 %\usepgfplotslibrary{dateplot}
+
 \usetikzlibrary{patterns}
 %\pgfplotsset{compat=1.3}
+
 %to align chapter on the left
 \usepackage{sectsty}
+\chapterfont{\thispagestyle{empty}}
 \chapterfont{\raggedleft}
 
 % for landscpae pages
@@ -109,7 +117,5 @@
 %To have Tableau instead of Table
 \addto\captionsfrench{\def\tablename{Tableau}}
 \addto\captionsfrench{\def\figurename{Figure}}
-
-%% Additional TeX/LaTeX code...
 
 \endinput
